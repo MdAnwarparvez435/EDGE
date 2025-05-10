@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Data in Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #ffffff;
+        }
+
+        button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #e60000; /* Darker red on hover */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+}
+
+button:active {
+    background-color: #b30000; /* Darker red when button is pressed */
+    transform: scale(0.98); /* Slightly shrink the button when clicked */
+}
+
+button:focus {
+    outline: none;
+    border: 2px solid #ff4d4d; /* Border color change on focus */
+}
+
+
+        .table-container {
+            margin: 20px auto;
+            width: 80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Users Information</h2>
+    <div class="table-container">
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Updated JSON data with IDs from 1 to 10 and corresponding emails
+        const jsonData = `[
+            {"id": 1, "name": "Robin", "email": "Robin1@gmail.com"},
+            {"id": 2, "name": "Sifat", "email": "Sifat2@gmail.com"},
+            {"id": 3, "name": "Parvez", "email": "Parvez3@gmail.com"},
+            {"id": 4, "name": "Anwar", "email": "Anwar4@gmail.com"},
+            {"id": 5, "name": "Shuvon", "email": "Shuvon5@gmail.com"},
+            {"id": 6, "name": "Mahim", "email": "Mahim6@gmail.com"},
+            {"id": 7, "name": "Shanto", "email": "Shanto7@gmail.com"},
+            {"id": 8, "name": "Khaled", "email": "Khaled8@gmail.com"},
+            {"id": 9, "name": "Fahad", "email": "Fahad9@gmail.com"},
+            {"id": 10, "name": "Titash", "email": "Titash10@gmail.com"}
+        ]`;
+
+        // Parse the JSON data string into an array of objects
+        const data = JSON.parse(jsonData);
+
+        // Function to render the data into the table
+        function renderTable() {
+            const tableBody = document.querySelector('#data-table tbody');
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+
+                // Create ID cell
+                const idCell = document.createElement('td');
+                idCell.textContent = item.id;
+                row.appendChild(idCell);
+
+                // Create Name cell
+                const nameCell = document.createElement('td');
+                nameCell.textContent = item.name;
+                row.appendChild(nameCell);
+
+                // Create Email cell
+                const emailCell = document.createElement('td');
+                emailCell.textContent = item.email;
+                row.appendChild(emailCell);
+
+                // Create Action (Delete) cell
+                const actionCell = document.createElement('td');
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'DELETE';
+                deleteButton.addEventListener('click', function() {
+                    deleteRow(item.id);
+                });
+                actionCell.appendChild(deleteButton);
+                row.appendChild(actionCell);
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to delete a row based on the ID
+        function deleteRow(id) {
+            const index = data.findIndex(item => item.id === id);
+            if (index > -1) {
+                data.splice(index, 1); // Remove the item from the data array
+                renderTable(); // Re-render the table after deletion
+            }
+        }
+
+        // Initial rendering of the table
+        renderTable();
+    </script>
+</body>
+</html>
