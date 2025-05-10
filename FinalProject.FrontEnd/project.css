@@ -1,0 +1,75 @@
+/* General Styling */
+body {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, white, #f8f8f8);
+    color: #333;
+}
+
+/* Game Container */
+#gameContainer {
+    position: relative;
+    width: 600px;
+    height: 450px;
+    background: linear-gradient(135deg, #6dd5fa, #2193b0);
+    border: 5px solid white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Number Circles */
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Flashing Border Effect When Time Ends */
+@keyframes flashBorder {
+    0% { border-color: red; }
+    50% { border-color: white; }
+    100% { border-color: red; }
+}
+
+#gameContainer.game-over {
+    animation: flashBorder 0.5s infinite;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 10px;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#startBtn { background-color: green; color: white; }
+#startBtn:hover { background-color: #388E3C; }
+
+#stopBtn { background-color: red; color: white; }
+#stopBtn:hover { background-color: darkred; }
