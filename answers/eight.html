@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchButton = document.querySelector("button");
+            const searchInput = document.querySelector("input");
+            const books = document.querySelectorAll("ol li");
+
+            searchButton.addEventListener("click", function () {
+                const query = searchInput.value.toLowerCase();
+                let found = false;
+
+                books.forEach(book => {
+                    if (book.textContent.toLowerCase().includes(query)) {
+                        alert("Book found: " + book.textContent);
+                        found = true;
+                    }
+                });
+
+                if (!found) {
+                    alert("Book not found");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Problem 8</h1>
+    <input type="text" placeholder="Enter book title">
+    <button>Search</button>
+
+    <h1>List of 10 Books</h1>
+    <ol>
+        <li>To Kill a Mockingbird by Harper Lee</li>
+        <li>1984 by George Orwell</li>
+        <li>Pride and Prejudice by Jane Austen</li>
+        <li>The Great Gatsby by F. Scott Fitzgerald</li>
+        <li>Moby-Dick by Herman Melville</li>
+        <li>War and Peace by Leo Tolstoy</li>
+        <li>Brave New World by Aldous Huxley</li>
+        <li>The Catcher in the Rye by J.D. Salinger</li>
+        <li>The Hobbit by J.R.R. Tolkien</li>
+        <li>One Hundred Years of Solitude by Gabriel Garcia Marquez</li>
+    </ol>
+</body>
+</html>

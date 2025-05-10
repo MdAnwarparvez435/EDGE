@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputField = document.querySelector("input[type='text']");
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+                const age = parseInt(inputField.value);
+
+                if (!isNaN(age)) {
+                    if (age < 100) {
+                        alert("You are 70 years old");
+                        inputField.style.border = "1px solid black"; // Keep normal border
+                    } else {
+                        alert("Invalid Input");
+                        inputField.style.border = "2px solid red"; // Highlight error
+                    }
+                } else {
+                    alert("Please enter a valid number");
+                    inputField.style.border = "2px solid red"; // Highlight error
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="one.html">Problem 1</a> |
+        <a href="two.html">Problem 2</a> |
+        <a href="three.html">Problem 3</a> |
+        <a href="four.html">Problem 4</a> |
+        <a href="five.html">Problem 5</a> |
+        <a href="six.html">Problem 6</a> |
+        <a href="seven.html">Problem 7</a> |
+        <a href="eight.html">Problem 8</a> |
+        <a href="nine.html">Problem 9</a>
+    </nav>  
+    <br><br>
+    <h1>Problem 3</h1><br>
+    <div>
+        <form action="three.php">
+            Enter your age
+            <input type="text"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
