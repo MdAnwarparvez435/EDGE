@@ -1,0 +1,74 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Header Section */
+header {
+    background-color: #004080;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Account Details Section */
+.account-details {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 500px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.account-details h2 {
+    text-align: center;
+    color: #004080;
+    margin-bottom: 20px;
+}
+
+.account-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.account-details li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.account-details li strong {
+    color: #004080; 
+}
+
+/* Footer Section */
+footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
